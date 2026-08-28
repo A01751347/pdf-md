@@ -1,0 +1,33 @@
+{
+  "name": "pdf-md",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Conversor PDF a Markdown de alta precisión, 100% local en el navegador.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --pretty",
+    "fixture": "python3 scripts/make_test_pdf.py muestra.pdf",
+    "selftest": "vite build --config vite.selftest.config.ts --logLevel error && node node_modules/.selftest/selftest.js",
+    "debug:layout": "ENTRY=scripts/debug-layout.ts vite build --config vite.selftest.config.ts --logLevel error && node node_modules/.selftest/debug-layout.js",
+    "check:markdown": "ENTRY=scripts/check-markdown.ts vite build --config vite.selftest.config.ts --logLevel error && node node_modules/.selftest/check-markdown.js",
+    "check:queue": "ENTRY=scripts/check-queue.ts vite build --config vite.selftest.config.ts --logLevel error && node node_modules/.selftest/check-queue.js"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "pdfjs-dist": "^5.4.149",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tesseract.js": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3"
+  }
+}
